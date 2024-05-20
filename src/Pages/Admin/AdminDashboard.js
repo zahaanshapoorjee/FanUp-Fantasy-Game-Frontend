@@ -137,76 +137,78 @@ const AdminDashboard = () => {
       </form>
 
       <h2>Manage Games</h2>
-      {games.length > 0 ? games.map(game => (
-        <div key={game._id} className="game-card">
-          <h3>{game.name}</h3>
-          <div>
-            <label>Total Players: </label>
-            <input
-              className="styled-input"
-              type="number"
-              value={game.totalPlayers}
-              onChange={(e) => {
-                const updatedGames = games.map(g => {
-                  if (g._id === game._id) {
-                    return { ...g, totalPlayers: parseInt(e.target.value, 10) };
-                  }
-                  return g;
-                });
-                setGames(updatedGames);
-              }}
-            />
+      <div className="manage-games-container">
+        {games.length > 0 ? games.map(game => (
+          <div key={game._id} className="game-card">
+            <h3>{game.name}</h3>
+            <div>
+              <label>Total Players: </label>
+              <input
+                className="styled-input"
+                type="number"
+                value={game.totalPlayers}
+                onChange={(e) => {
+                  const updatedGames = games.map(g => {
+                    if (g._id === game._id) {
+                      return { ...g, totalPlayers: parseInt(e.target.value, 10) };
+                    }
+                    return g;
+                  });
+                  setGames(updatedGames);
+                }}
+              />
+            </div>
+            <div>
+              {game.sports.map(sport => (
+                <div key={sport}>
+                  <label>{sport} Player Limit:</label>
+                  <input
+                    className="styled-input"
+                    type="number"
+                    value={game.playerLimits[sport] || ''}
+                    onChange={(e) => {
+                      const updatedGames = games.map(g => {
+                        if (g._id === game._id) {
+                          return {
+                            ...g,
+                            playerLimits: {
+                              ...g.playerLimits,
+                              [sport]: parseInt(e.target.value, 10)
+                            }
+                          };
+                        }
+                        return g;
+                      });
+                      setGames(updatedGames);
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+            <div>
+              <label>Budget (in M): </label>
+              <input
+                className="styled-input"
+                type="number"
+                value={game.budget}
+                onChange={(e) => {
+                  const updatedGames = games.map(g => {
+                    if (g._id === game._id) {
+                      return { ...g, budget: parseInt(e.target.value, 10) };
+                    }
+                    return g;
+                  });
+                  setGames(updatedGames);
+                }}
+                placeholder="Budget (in M)"
+              />
+            </div>
+            <button onClick={() => handleUpdate(game._id)}>Update Game</button>
           </div>
-          <div>
-            {game.sports.map(sport => (
-              <div key={sport}>
-                <label>{sport} Player Limit:</label>
-                <input
-                  className="styled-input"
-                  type="number"
-                  value={game.playerLimits[sport] || ''}
-                  onChange={(e) => {
-                    const updatedGames = games.map(g => {
-                      if (g._id === game._id) {
-                        return {
-                          ...g,
-                          playerLimits: {
-                            ...g.playerLimits,
-                            [sport]: parseInt(e.target.value, 10)
-                          }
-                        };
-                      }
-                      return g;
-                    });
-                    setGames(updatedGames);
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-          <div>
-            <label>Budget (in M): </label>
-            <input
-              className="styled-input"
-              type="number"
-              value={game.budget}
-              onChange={(e) => {
-                const updatedGames = games.map(g => {
-                  if (g._id === game._id) {
-                    return { ...g, budget: parseInt(e.target.value, 10) };
-                  }
-                  return g;
-                });
-                setGames(updatedGames);
-              }}
-              placeholder="Budget (in M)"
-            />
-          </div>
-          <button onClick={() => handleUpdate(game._id)}>Update Game</button>
-        </div>
-      )) : (
-        <p>No games available. Please create a new game.</p>
-      )}
+        )) : (
+          <p>No games available. Please create a new game.</p>
+        )}
+      </div>
     </div>
   );
 };
