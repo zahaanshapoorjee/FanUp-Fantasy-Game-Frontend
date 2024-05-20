@@ -1,70 +1,113 @@
 body {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-  }
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+form, .game-card {
+  background-color: #282828;
+  border: 1px solid #4dffa8;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(77, 255, 168, 0.5);
+}
+
+h1, h2, h3, label {
+  color: #4dffa8;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+input[type="text"], input[type="number"], button {
+  width: calc(100% - 20px);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .styled-input
 {
-    width: 100%;
-    padding: 15px; /* Increased padding */
-    margin: 10px 0; /* Increased margin */
-    border-radius: 4px;
-    border: none;
-    font-size: 1.2rem; /* Increased font size */
+  width: calc(100% - 20px);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
 }
-  
-  .admin-dashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+
+input[type="text"], input[type="number"] {
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
+button {
+  background-color: #4dffa8;
+  color: #1a1a1a;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+  background-color: #3cb371;
+}
+
+label, input[type="checkbox"] {
+  font-size: 1.4rem;
+  margin: 10px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.fantasytitle {
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .fantasytitle {
+    font-size: 2rem;
   }
-  
-  form, .game-card {
-    background-color: #2e2e2e;
-    border: 1px solid #00ff00;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-  }
-  
-  h1, h2, h3, label {
-    color: #00ff00;
-    font-size: 2rem; /* Increased font size */
-  }
-  
+
   input[type="text"], input[type="number"], button {
+    width: calc(100% - 20px);
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .game-card {
     width: 100%;
-    padding: 15px; /* Increased padding */
-    margin: 10px 0; /* Increased margin */
-    border-radius: 4px;
-    border: none;
-    font-size: 1.2rem; /* Increased font size */
+    padding: 10px;
   }
-  
-  input[type="text"], input[type="number"] {
-    background-color: #3e3e3e;
-    color: #ffffff;
-  }
-  
-  button {
-    background-color: #00ff00;
-    color: #1e1e1e;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.2rem; /* Increased font size */
-  }
-  
-  button:hover {
-    background-color: #00cc00;
-  }
-  
-  label, input[type="checkbox"] {
-    font-size: 1.4rem; /* Increased font size */
-    margin: 10px;
-  }
-  
+}

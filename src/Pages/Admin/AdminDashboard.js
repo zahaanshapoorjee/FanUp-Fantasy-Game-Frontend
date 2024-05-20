@@ -94,7 +94,9 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <h1>Admin Dashboard</h1>
+      <div className="title-container">
+        <h1 className="fantasytitle">Admin Dashboard</h1>
+      </div>
       <h2>Create Fantasy Game</h2>
       <form onSubmit={handleSubmit}>
         <input className="styled-input" name="name" value={newGame.name} onChange={handleChange} placeholder="Game Name" />
